@@ -37,4 +37,5 @@ dependencies {
     compile 'com.github.florent37:expectanim:1.0.1'
     compile 'com.android.support:design:25.2.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.specyci:residemenu:1.6+'
 }
