@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/diarycard"
+        app:cardCornerRadius="4dp"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:gravity="center_horizontal"
+            android:id="@+id/diarytime"
+            android:layout_below="@+id/diarydate"
+            android:textColor="@color/primaryText"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"
+            android:layout_below="@+id/diarytime"
+            />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:minHeight="?android:attr/listPreferredItemHeightSmall"
+                android:gravity="center_horizontal"
+                android:id="@+id/diarydate"
+                android:textColor="@color/primaryText"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sentimentvalue"
+                android:layout_below="@id/diarytime"
+                android:minHeight="?android:attr/listPreferredItemHeightSmall"
+                android:text="Sentiment"
+                android:textSize="15sp"
+                android:textColor="@color/primaryText"
+                android:gravity="center_horizontal"/>
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

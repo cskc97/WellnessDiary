@@ -13,13 +13,17 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar1"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
+        android:layout_height="300dp"
         android:fitsSystemWindows="true"
         >
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"/>
 
 
         <ImageView
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
 
@@ -73,7 +77,7 @@
                 android:id="@+id/feelingsET"/>
 
             <com.gc.materialdesign.views.ButtonFlat
-                android:id="@+id/buttonflat"
+                android:id="@+id/saveToDiaryButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#1E88E5"

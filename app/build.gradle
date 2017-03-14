@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 25
@@ -38,4 +39,13 @@ dependencies {
     compile 'com.android.support:design:25.2.0'
     testCompile 'junit:junit:4.12'
     compile 'com.specyci:residemenu:1.6+'
+    compile 'com.github.Yalantis:GuillotineMenu-Android:1.2'
+    compile 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
+    compile 'com.gelitenight.waveview:waveview:1.0.0'
+    compile 'fr.xebia.android.freezer:freezer:2.0.6'
+    provided 'fr.xebia.android.freezer:freezer-annotations:2.0.6'
+    apt 'fr.xebia.android.freezer:freezer-compiler:2.0.6'
+    compile 'com.android.support:cardview-v7:25.0.+'
+    compile 'com.android.support:recyclerview-v7:25.0.+'
 }
+
