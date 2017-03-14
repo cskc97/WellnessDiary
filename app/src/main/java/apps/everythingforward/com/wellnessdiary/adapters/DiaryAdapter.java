@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import apps.everythingforward.com.wellnessdiary.R;
 import apps.everythingforward.com.wellnessdiary.database.DiaryRecords;
 import apps.everythingforward.com.wellnessdiary.database.DiaryRecordsEntityManager;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by santh on 3/14/2017.
@@ -72,6 +73,47 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
         holder.timeTV.setText(timeVal);
         holder.sentimentTV.setText(sVal);
 
+        final ViewHolder hold = holder;
+        final int pos = position;
+
+        holder.diaryCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new SweetAlertDialog(hold.diaryCard.getContext(),SweetAlertDialog.NORMAL_TYPE)
+                        .setTitleText("Your Diary Entry:")
+                        .setContentText(data.get(pos).getDiaryEntryText())
+                        .show();
+            }
+        });
+
+        holder.diaryCard.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                new SweetAlertDialog(hold.diaryCard.getContext(),SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Delete Diary Entry")
+                        .setContentText("Are you sure you want to delete this diary entry?")
+                        .setConfirmText("Yes")
+                        .setCancelText("No")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+
+                               removeDataPositon(pos);
+                                sweetAlertDialog.dismissWithAnimation();
+
+
+
+                            }
+                        })
+                        .show();
+
+
+                return false;
+            }
+        });
+
+
 
 
 
@@ -98,5 +140,28 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
 
 
         }
+    }
+
+    public void removeDataPositon(int position)
+    {
+
+        manager.delete(data.get(position));
+
+        data.remove(position);
+
+        this.notifyItemRemoved(position);
+
+    }
+
+    public void removeAll()
+    {
+        manager.deleteAll();
+
+        data.clear();
+
+        this.notifyDataSetChanged();
+
+        //this.notifyItemRangeRemoved(0,getItemCount());
+
     }
 }

@@ -66,10 +66,23 @@ public class MainActivity extends AppCompatActivity {
         int icon[] = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
         for (int i = 0; i < titles.length; i++){
             ResideMenuItem item = new ResideMenuItem(this, icon[i], titles[i]);
+            final int finalI = i;
             item.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View view) {
+
+                    switch(finalI)
+                    {
+                        case 1:
+                        {
+                            break;
+                        }
+                        case 2:
+                        {
+                           startActivity(new Intent(MainActivity.this,DisplayDiary.class));
+                        }
+                    }
 
                 }
             });

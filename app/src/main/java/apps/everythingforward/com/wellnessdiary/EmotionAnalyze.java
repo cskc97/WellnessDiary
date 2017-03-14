@@ -121,14 +121,6 @@ public class EmotionAnalyze extends AppCompatActivity {
         getTimeAndDate();
 
 
-        ArrayList<DiaryRecords> list = (ArrayList<DiaryRecords>) diaryRecordsEntityManager.select().asList();
-        for(int counter=0;counter<list.size();counter++)
-        {
-            Toast.makeText(this, list.get(counter).getDiaryEntryDate()+":"+list.get(counter).getDiaryEntrySentiment(),
-                    Toast.LENGTH_SHORT).show();
-
-
-        }
 
 
     }
