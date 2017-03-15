@@ -29,7 +29,8 @@
         <activity android:name=".DisplayDiary" />
         <activity android:name=".MoodGraph" />
         <activity android:name=".CalendarPick" />
-        <activity android:name=".DiaryEntryByDate"></activity>
+        <activity android:name=".DiaryEntryByDate" />
+        <activity android:name=".StatisticsActivity"></activity>
     </application>
 
 </manifest>

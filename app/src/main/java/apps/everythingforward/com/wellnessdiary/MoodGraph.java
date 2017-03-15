@@ -60,6 +60,8 @@ public class MoodGraph extends AppCompatActivity {
         chart.invalidate();
 
 
+
+
     }
 
     @Override

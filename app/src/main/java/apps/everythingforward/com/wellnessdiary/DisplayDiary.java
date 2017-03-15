@@ -1,6 +1,7 @@
 package apps.everythingforward.com.wellnessdiary;
 
 import android.content.Intent;
+import android.graphics.pdf.PdfDocument;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -38,7 +39,16 @@ public class DisplayDiary extends AppCompatActivity {
 
         buttonFlat = (ButtonFlat)findViewById(R.id.graphButton);
 
+        
+
+
+
         buttonFloatSmall = (ButtonFloatSmall)findViewById(R.id.buttonFloatSmall);
+
+        if(buttonFloatSmall!=null)
+        {
+            buttonFloatSmall.setDrawableIcon(getResources().getDrawable(R.drawable.ic_unfold_more_black_24dp));
+        }
 
         buttonFloatSmall.setOnClickListener(new View.OnClickListener() {
             @Override
