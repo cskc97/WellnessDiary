@@ -1,10 +1,13 @@
 package apps.everythingforward.com.wellnessdiary;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.gc.materialdesign.views.ButtonFlat;
 import com.github.nisrulz.sensey.Sensey;
 import com.github.nisrulz.sensey.ShakeDetector;
 
@@ -19,6 +22,8 @@ public class DisplayDiary extends AppCompatActivity {
 
     ShakeDetector.ShakeListener shakeListener;
 
+    ButtonFlat buttonFlat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,7 @@ public class DisplayDiary extends AppCompatActivity {
 
         Sensey.getInstance().init(getApplicationContext());
 
+        buttonFlat = (ButtonFlat)findViewById(R.id.graphButton);
 
         shakeListener = new ShakeDetector.ShakeListener() {
             @Override
@@ -55,6 +61,15 @@ public class DisplayDiary extends AppCompatActivity {
 
             }
         };
+
+
+        buttonFlat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DisplayDiary.this,MoodGraph.class));
+                finish();
+            }
+        });
 
 
 
@@ -85,5 +100,11 @@ public class DisplayDiary extends AppCompatActivity {
         super.onDestroy();
         Sensey.getInstance().stop();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
