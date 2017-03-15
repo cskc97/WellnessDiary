@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.gc.materialdesign.views.ButtonFlat;
+import com.gc.materialdesign.views.ButtonFloatSmall;
 import com.github.nisrulz.sensey.Sensey;
 import com.github.nisrulz.sensey.ShakeDetector;
 
@@ -24,6 +25,8 @@ public class DisplayDiary extends AppCompatActivity {
 
     ButtonFlat buttonFlat;
 
+    ButtonFloatSmall buttonFloatSmall;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,15 @@ public class DisplayDiary extends AppCompatActivity {
         Sensey.getInstance().init(getApplicationContext());
 
         buttonFlat = (ButtonFlat)findViewById(R.id.graphButton);
+
+        buttonFloatSmall = (ButtonFloatSmall)findViewById(R.id.buttonFloatSmall);
+
+        buttonFloatSmall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DisplayDiary.this,CalendarPick.class));
+            }
+        });
 
         shakeListener = new ShakeDetector.ShakeListener() {
             @Override

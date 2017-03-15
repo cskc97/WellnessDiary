@@ -62,7 +62,7 @@ public class WaveHelper {
                 mWaveView, "amplitudeRatio", 0.0001f, 0.05f);
         amplitudeAnim.setRepeatCount(ValueAnimator.INFINITE);
         amplitudeAnim.setRepeatMode(ValueAnimator.REVERSE);
-        amplitudeAnim.setDuration(5000);
+        amplitudeAnim.setDuration(2500);
         amplitudeAnim.setInterpolator(new LinearInterpolator());
         animators.add(amplitudeAnim);
 

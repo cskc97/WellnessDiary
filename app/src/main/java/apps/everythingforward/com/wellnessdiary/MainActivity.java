@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.gc.materialdesign.views.ButtonFlat;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
+import com.squareup.haha.perflib.Main;
 import com.squareup.picasso.Picasso;
 
 import apps.everythingforward.com.wellnessdiary.services.SentimentAnalysisIntentService;
@@ -57,37 +58,38 @@ public class MainActivity extends AppCompatActivity {
         mainBG = (ImageView)findViewById(R.id.mainBG);
 
        resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.bg);
+        resideMenu.setBackground(R.drawable.residemenubgblur);
         resideMenu.attachToActivity(this);
 
         buttonFlat = (ButtonFlat)findViewById(R.id.saveToDiaryButton);
 
         String titles[] = {"Home" ,"My Diary","Mood Graph" };
         int icon[] = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
-        for (int i = 0; i < titles.length; i++){
-            ResideMenuItem item = new ResideMenuItem(this, icon[i], titles[i]);
-            final int finalI = i;
-            item.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view) {
 
-                    switch(finalI)
-                    {
-                        case 1:
-                        {
-                            break;
-                        }
-                        case 2:
-                        {
-                           startActivity(new Intent(MainActivity.this,DisplayDiary.class));
-                        }
-                    }
+        ResideMenuItem itemMyDiary = new ResideMenuItem(this,icon[1],titles[1]);
+        itemMyDiary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,DisplayDiary.class));
+            }
+        });
 
-                }
-            });
-            resideMenu.addMenuItem(item,  ResideMenu.DIRECTION_LEFT); // or  ResideMenu.DIRECTION_RIGHT
-        }
+
+
+
+        ResideMenuItem itemMoodGraph = new ResideMenuItem(this,icon[2],titles[2]);
+        itemMoodGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MoodGraph.class));
+            }
+        });
+
+
+
+            resideMenu.addMenuItem(itemMyDiary,  ResideMenu.DIRECTION_LEFT); // or  ResideMenu.DIRECTION_RIGHT
+            resideMenu.addMenuItem(itemMoodGraph,ResideMenu.DIRECTION_LEFT);
+
 
 
 

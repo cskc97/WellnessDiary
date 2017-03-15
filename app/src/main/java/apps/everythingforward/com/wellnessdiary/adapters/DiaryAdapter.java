@@ -31,6 +31,11 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
 
     }
 
+    public DiaryAdapter(ArrayList<DiaryRecords> otherData)
+    {
+        data = otherData;
+    }
+
 
 
     @Override
@@ -71,7 +76,9 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
 
         holder.dateTV.setText(dateVal);
         holder.timeTV.setText(timeVal);
-        holder.sentimentTV.setText(sVal);
+
+        String setVal = sVal+"%";
+        holder.sentimentTV.setText(setVal);
 
         final ViewHolder hold = holder;
         final int pos = position;
