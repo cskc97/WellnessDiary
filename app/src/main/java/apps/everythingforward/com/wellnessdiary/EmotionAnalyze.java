@@ -137,7 +137,7 @@ public class EmotionAnalyze extends AppCompatActivity {
         finish();
     }
 
-    private String[] getTimeAndDate()
+    public static String[] getTimeAndDate()
     {
         Time time = new Time(System.currentTimeMillis());
         Log.e("Current Time and date", time.toString());

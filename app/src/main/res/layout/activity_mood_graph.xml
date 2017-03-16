@@ -8,11 +8,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="apps.everythingforward.com.wellnessdiary.MoodGraph">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="490dp"
+        android:layout_marginTop="11dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <com.gc.materialdesign.views.ButtonFlat
+        android:id="@+id/saveGraphButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1E88E5"
+        android:text="Save Graph"
+        android:layout_below="@+id/chart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp" />
 
 </RelativeLayout>

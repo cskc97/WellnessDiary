@@ -56,5 +56,8 @@ dependencies {
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     compile 'com.prolificinteractive:material-calendarview:1.4.3'
     compile 'com.azoft.carousellayoutmanager:carousel:1.2.1'
+    compile 'org.apache.commons:commons-math3:3.6.1'
+    compile 'com.karumi:dexter:4.0.0'
+    compile 'com.tapadoo.android:alerter:1.0.6'
 }
 

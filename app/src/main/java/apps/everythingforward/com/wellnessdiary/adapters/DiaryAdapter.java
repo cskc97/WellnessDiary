@@ -33,6 +33,7 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
 
     public DiaryAdapter(ArrayList<DiaryRecords> otherData)
     {
+        manager = new DiaryRecordsEntityManager();
         data = otherData;
     }
 
