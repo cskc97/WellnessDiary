@@ -49,6 +49,11 @@
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:paddingBottom="20dp"
+                android:padding="2dp"
+                android:shadowColor="#7F000000"
+                android:shadowDx="3"
+                android:shadowDy="-3"
+                android:shadowRadius="1.5"
 
                 />
             
