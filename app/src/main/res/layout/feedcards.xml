@@ -54,6 +54,7 @@
                 android:shadowDx="3"
                 android:shadowDy="-3"
                 android:shadowRadius="1.5"
+                android:textSize="18sp"
 
                 />
             
@@ -69,6 +70,7 @@
                 android:text="This is where the text description will be there and
                 it can last multiple lines also"
                 android:paddingTop="10dp"
+                android:padding="10dp"
 
 
                 />
