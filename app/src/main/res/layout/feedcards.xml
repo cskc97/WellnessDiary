@@ -32,7 +32,7 @@
             
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="150dp"
                 android:id="@+id/articleIV"/>
 
             <TextView
@@ -43,7 +43,17 @@
                 android:id="@+id/titleTV"
                 android:minHeight="12sp"
                 android:gravity="center"
+                android:textColor="#FFFFFF"
                 />
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_above="@id/descriptionTV"
+                android:background="#cfd8dc"
+                />
+
+          
 
             <TextView
                 android:layout_width="match_parent"
@@ -73,3 +83,5 @@
 
 
     </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
