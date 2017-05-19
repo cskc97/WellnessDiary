@@ -30,12 +30,24 @@ public class FeedActivity extends AppCompatActivity {
 
         feedRecyclerView=(RecyclerView)findViewById(R.id.feedRV);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getFeed();
+
+
     }
 
     public void getFeed()
     {
 
+        /*TODO: Optimize feed:
+        Make one ping to the server in onCreate and store all the articles in a SQLite Database until
+        next time where you delete and store again.
+         */
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("FeedItem");
         query.findInBackground(new FindCallback<ParseObject>() {

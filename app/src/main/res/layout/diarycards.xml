@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/diarycard"
+        android:id="@+id/feedcard"
         app:cardCornerRadius="4dp"
 
         card_view:cardUseCompatPadding="true"

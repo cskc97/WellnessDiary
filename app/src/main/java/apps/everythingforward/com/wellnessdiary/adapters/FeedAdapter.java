@@ -1,5 +1,7 @@
 package apps.everythingforward.com.wellnessdiary.adapters;
 
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,11 +31,13 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
         ImageView articleImage;
         TextView articleTitle,articleDescription;
+        CardView feedCard;
         public ViewHolder(View itemView) {
             super(itemView);
             articleImage= (ImageView) itemView.findViewById(R.id.articleIV);
             articleTitle=(TextView)itemView.findViewById(R.id.titleTV);
             articleDescription=(TextView)itemView.findViewById(R.id.descriptionTV);
+            feedCard = (CardView)itemView.findViewById(R.id.feedcard);
 
 
 
@@ -64,6 +68,13 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         holder.articleTitle.setText(data.get(position).getString(Utility.FEED_ARTICLETITLE));
 
         holder.articleDescription.setText(data.get(position).getString(Utility.FEED_ARTICLEDESCRIPTION));
+
+        holder.feedCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            //    Intent intent = new Intent(view.getContext())
+            }
+        });
 
 
 
