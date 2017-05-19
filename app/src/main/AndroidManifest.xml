@@ -17,6 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
+        <meta-data
+            android:name="com.parse.SERVER_URL"
+            android:value="http://wellnessbackend.herokuapp.com/parse" />
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="wellnessbackend" />
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

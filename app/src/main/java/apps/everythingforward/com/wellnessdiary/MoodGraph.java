@@ -101,6 +101,9 @@ public class MoodGraph extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        //Ctrl+Shift+D to promp the exynap dialog
+
+
         super.onResume();
 
         for(int counter=0;counter<data.size();counter++)

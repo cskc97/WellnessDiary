@@ -2,6 +2,8 @@ package apps.everythingforward.com.wellnessdiary;
 
 import android.app.Application;
 
+import com.parse.Parse;
+
 import fr.xebia.android.freezer.Freezer;
 
 /**
@@ -14,6 +16,8 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Freezer.onCreate(this);
+        Parse.initialize(this);
+
 
 
     }
