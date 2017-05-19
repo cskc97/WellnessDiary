@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public static String bgURL = "https://source.unsplash.com/1600x900/?nature";
 
     ButtonFlat buttonFlat;
+    ButtonFlat manualEntry;
 
 
     ResideMenu resideMenu;
@@ -55,8 +56,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        diaryText = (EditText)findViewById(R.id.feelingsET);
         mainBG = (ImageView)findViewById(R.id.mainBG);
-        Picasso.with(getApplicationContext()).load(bgURL).fit().into(mainBG);
+        manualEntry = (ButtonFlat)findViewById(R.id.PickManually);
+
 
 
         if(ParseUser.getCurrentUser()==null) {
@@ -67,14 +70,24 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(builder.build(), 0);
         }
 
-        diaryText = (EditText)findViewById(R.id.feelingsET);
+
+        Picasso.with(getApplicationContext()).load(bgURL).fit().into(mainBG);
+
+        manualEntry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ManualEntry.class));
+            }
+        });
+
+
 
 
 
 
 
         resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.flatsun);
+        resideMenu.setBackground(R.drawable.residembg);
         resideMenu.attachToActivity(this);
 
         buttonFlat = (ButtonFlat)findViewById(R.id.saveToDiaryButton);

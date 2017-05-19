@@ -39,6 +39,7 @@ public class EmotionAnalyze extends AppCompatActivity {
     DiaryRecordsEntityManager diaryRecordsEntityManager;
 
     ButtonFlat saveButton;
+    String setString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,14 @@ public class EmotionAnalyze extends AppCompatActivity {
         diaryRecordsEntityManager = new DiaryRecordsEntityManager();
 
         waveView = (WaveView)findViewById(R.id.wave);
-        waveHelper = new WaveHelper(waveView,obtainValue);
+
+        if(obtainValue<1) {
+            waveHelper = new WaveHelper(waveView, obtainValue);
+        }
+        else
+        {
+            waveHelper=new WaveHelper(waveView,obtainValue/100);
+        }
         waveView.setShapeType(WaveView.ShapeType.CIRCLE);
 
         emotionTV = (TextView)findViewById(R.id.textView2);
@@ -68,7 +76,14 @@ public class EmotionAnalyze extends AppCompatActivity {
 
         Log.e("EA",String.valueOf(obtainValue*100));
 
-        final String setString = String.valueOf(Math.round(obtainValue*100));
+
+        if(obtainValue<1) {
+            setString  = String.valueOf(Math.round(obtainValue * 100));
+        }
+        else
+        {
+            setString = String.valueOf(Math.round(obtainValue));
+        }
         emotionTV.setText(setString+"%");
 
 
