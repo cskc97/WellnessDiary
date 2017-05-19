@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonFlat;
+import com.parse.ParseUser;
+import com.parse.ui.ParseLoginBuilder;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
 import com.squareup.haha.perflib.Main;
@@ -48,14 +50,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mainBG = (ImageView)findViewById(R.id.mainBG);
+        Picasso.with(getApplicationContext()).load(bgURL).fit().into(mainBG);
+
+
+        if(ParseUser.getCurrentUser()!=null) {
+            ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+            builder.setAppLogo(R.drawable.applogo100x100);
+
+
+            startActivityForResult(builder.build(), 0);
+        }
 
         diaryText = (EditText)findViewById(R.id.feelingsET);
 
 
 
-        mainBG = (ImageView)findViewById(R.id.mainBG);
+
 
        resideMenu = new ResideMenu(this);
         resideMenu.setBackground(R.drawable.residemenubgblur);
@@ -63,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonFlat = (ButtonFlat)findViewById(R.id.saveToDiaryButton);
 
-        String titles[] = {"Home" ,"My Diary","Mood Graph","Statistics" };
+        String titles[] = {"Home" ,"My Diary","Mood Graph","Statistics","Feed"};
         int icon[] = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
 
         ResideMenuItem itemMyDiary = new ResideMenuItem(this,icon[1],titles[1]);
@@ -92,6 +108,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,StatisticsActivity.class));
             }
         });
+
+        ResideMenuItem itemFeed = new ResideMenuItem(this,icon[2],titles[4]);
+        itemFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
+
 
 
 
@@ -177,13 +203,14 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         registerReceiver(receiver,intentFilter);
+
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Picasso.with(getApplicationContext()).load(bgURL).fit().into(mainBG);
 
         // or ResideMenu.DIRECTION_RIGHT
 
