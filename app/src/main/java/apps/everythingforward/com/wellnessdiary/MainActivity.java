@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Picasso.with(getApplicationContext()).load(bgURL).fit().into(mainBG);
 
 
-        if(ParseUser.getCurrentUser()!=null) {
+        if(ParseUser.getCurrentUser()==null) {
             ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
             builder.setAppLogo(R.drawable.applogo100x100);
 
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
 
        resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.residemenubgblur);
+        resideMenu.setBackground(R.drawable.residembg);
         resideMenu.attachToActivity(this);
 
         buttonFlat = (ButtonFlat)findViewById(R.id.saveToDiaryButton);
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         itemFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                startActivity(new Intent(getApplicationContext(),FeedActivity.class));
             }
         });
 
@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             resideMenu.addMenuItem(itemMyDiary,  ResideMenu.DIRECTION_LEFT); // or  ResideMenu.DIRECTION_RIGHT
             resideMenu.addMenuItem(itemMoodGraph,ResideMenu.DIRECTION_LEFT);
             resideMenu.addMenuItem(itemStats,ResideMenu.DIRECTION_LEFT);
+            resideMenu.addMenuItem(itemFeed,ResideMenu.DIRECTION_RIGHT);
 
 
 
