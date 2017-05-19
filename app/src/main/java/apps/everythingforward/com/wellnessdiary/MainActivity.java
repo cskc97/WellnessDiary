@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-       resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.residembg);
+        resideMenu = new ResideMenu(this);
+        resideMenu.setBackground(R.drawable.flatsun);
         resideMenu.attachToActivity(this);
 
         buttonFlat = (ButtonFlat)findViewById(R.id.saveToDiaryButton);
@@ -230,9 +230,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
-        resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
+       switch(item.getItemId())
+       {
+           case R.id.logout_settings:
+           {
+                ParseUser.logOut();
+                finish();
 
 
+           }
+       }
 
 
 

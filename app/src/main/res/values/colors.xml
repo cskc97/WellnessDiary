@@ -8,4 +8,5 @@
     <color name="negativemood">#ef9a9a</color>
     <color name="neutralmood">#e6ee9c</color>
     <color name="positivemood">#b9f6ca</color>
+    <color name="titlecolor">#1E88E5</color>
 </resources>

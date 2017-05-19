@@ -22,6 +22,7 @@ android {
 repositories {
     maven { url "https://jitpack.io" }
     mavenCentral()
+    jcenter()
 }
 
 
@@ -72,5 +73,9 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     compile 'org.greenrobot:eventbus:3.0.0'
+
+    //Number picker
+    compile 'com.shawnlin:number-picker:2.4.3'
+
 }
 

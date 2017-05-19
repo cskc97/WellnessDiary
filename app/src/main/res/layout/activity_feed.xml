@@ -17,8 +17,10 @@
         android:text="Your Feed"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:minHeight="25dp"
+        android:textSize="25sp"
 
-        android:textSize="18sp"/>
+        />
 
 
     <android.support.v7.widget.RecyclerView

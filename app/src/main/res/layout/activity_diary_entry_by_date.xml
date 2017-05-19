@@ -20,7 +20,7 @@
         android:layout_marginTop="16dp"
         android:id="@+id/textView3"
         android:textSize="14sp"
-        android:textColor="@color/primaryText"/>
+        android:textColor="@color/titlecolor"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
