@@ -36,10 +36,11 @@
             android:layout_height="wrap_content"
             android:text="Time"
             android:minHeight="?android:attr/listPreferredItemHeightSmall"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:id="@+id/diarytime"
             android:layout_below="@+id/diarydate"
-            android:textColor="@color/primaryText"/>
+            android:textColor="@color/primaryText"
+             />
 
         <View
             android:layout_width="match_parent"
@@ -53,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="Date"
                 android:minHeight="?android:attr/listPreferredItemHeightSmall"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:id="@+id/diarydate"
                 android:textColor="@color/primaryText"
                 android:layout_alignParentTop="true"
@@ -71,7 +72,7 @@
                 android:text="Sentiment"
                 android:textSize="15sp"
                 android:textColor="@color/primaryText"
-                android:gravity="center_horizontal"/>
+                android:gravity="center"/>
 
 
         </RelativeLayout>
