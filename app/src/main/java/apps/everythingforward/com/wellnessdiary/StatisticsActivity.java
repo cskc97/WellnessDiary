@@ -79,7 +79,13 @@ public class StatisticsActivity extends AppCompatActivity {
 
 
         GraphFilePaths latestGraph = graphFilePathsEntityManager.select().sortDesc(GraphFilePathsColumns.graphfileid).first();
-        latestGraphFilePath  = latestGraph.getGraphImagePath();
+        if(latestGraph!=null) {
+            latestGraphFilePath = latestGraph.getGraphImagePath();
+            String fullPath = Environment.getExternalStorageDirectory() + "/"+Environment.DIRECTORY_DCIM + "/";
+            fullPath+=latestGraphFilePath;
+            Uri uri = Uri.fromFile(new File(fullPath));
+            Picasso.with(getApplicationContext()).load(uri).fit().into(graphImg);
+        }
 
 
 
@@ -88,10 +94,7 @@ public class StatisticsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        String fullPath = Environment.getExternalStorageDirectory() + "/"+Environment.DIRECTORY_DCIM + "/";
-        fullPath+=latestGraphFilePath;
-        Uri uri = Uri.fromFile(new File(fullPath));
-        Picasso.with(getApplicationContext()).load(uri).fit().into(graphImg);
+
 
 
 
