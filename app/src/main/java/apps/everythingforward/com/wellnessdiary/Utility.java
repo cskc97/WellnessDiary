@@ -10,4 +10,5 @@ public class Utility {
     public static final String FEED_ARTICLEIMAGE = "itemImage";
     public static final String FEED_ARTICLECONTENT="itemContent";
     public static final String FEED_ARTICLEDESCRIPTION="itemDescription";
+    public static final String FEED_ITEMID="feedItemID";
 }

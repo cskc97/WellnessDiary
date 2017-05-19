@@ -23,6 +23,7 @@ public class FeedActivity extends AppCompatActivity {
     FeedAdapter feedAdapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

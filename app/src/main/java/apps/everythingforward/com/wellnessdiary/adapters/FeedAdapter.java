@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseObject;
 import com.squareup.picasso.Picasso;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
+import apps.everythingforward.com.wellnessdiary.FeedItemActivity;
 import apps.everythingforward.com.wellnessdiary.R;
 import apps.everythingforward.com.wellnessdiary.Utility;
 
@@ -59,7 +61,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(FeedAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(FeedAdapter.ViewHolder holder, final int position) {
 
         String imageURL = data.get(position).getString(Utility.FEED_ARTICLEIMAGE);
         Picasso.with(holder.articleImage.getContext()).load(imageURL).fit().centerCrop()
@@ -72,7 +74,12 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         holder.feedCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //    Intent intent = new Intent(view.getContext())
+                Intent intent = new Intent(view.getContext(), FeedItemActivity.class);
+                Number ID = data.get(position).getNumber(Utility.FEED_ITEMID);
+
+                Toast.makeText(view.getContext(), String.valueOf(ID.intValue()), Toast.LENGTH_SHORT).show();
+                intent.putExtra(Intent.EXTRA_TEXT,ID.intValue());
+                view.getContext().startActivity(intent);
             }
         });
 
