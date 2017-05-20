@@ -82,5 +82,8 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
 
+    //Circular Image View
+    compile 'com.mikhaellopez:circularimageview:3.0.2'
+
 }
 

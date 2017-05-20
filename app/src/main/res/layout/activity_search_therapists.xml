@@ -14,11 +14,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#1E88E5"
-            android:text="Connect with Therapists"
+            android:text="Connect"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:minHeight="25dp"
             android:textSize="25sp"
+            android:textAllCaps="true"
 
             />
 

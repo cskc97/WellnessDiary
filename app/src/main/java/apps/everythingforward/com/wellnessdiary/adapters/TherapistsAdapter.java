@@ -47,14 +47,14 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView name;
-        LinearLayout layout;
+
 
 
         public ViewHolder(View itemView) {
             super(itemView);
             image = (ImageView)itemView.findViewById(R.id.therapistImage);
             name = (TextView)itemView.findViewById(R.id.therapistName);
-            layout = (LinearLayout)itemView.findViewById(R.id.itemID);
+
 
         }
     }
@@ -75,7 +75,7 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
         file.getDataInBackground(new GetDataCallback() {
             @Override
             public void done(byte[] data, ParseException e) {
-                Glide.with(holderFinal.layout.getContext()).load(data).apply(RequestOptions.fitCenterTransform()).into(holderFinal.image);
+                Glide.with(holderFinal.image.getContext()).load(data).apply(RequestOptions.fitCenterTransform()).into(holderFinal.image);
             }
         });
 
