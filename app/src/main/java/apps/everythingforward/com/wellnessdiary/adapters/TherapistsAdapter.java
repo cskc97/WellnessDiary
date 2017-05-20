@@ -35,6 +35,7 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
 
     public TherapistsAdapter(List<ParseObject> objectList)
     {
+
         data = (ArrayList<ParseObject>)objectList;
     }
 

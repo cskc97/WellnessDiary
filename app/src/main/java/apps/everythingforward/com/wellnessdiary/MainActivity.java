@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ResideMenuItem connectTherapists = new ResideMenuItem(this,icon[2],titles[5]);
-        itemFeed.setOnClickListener(new View.OnClickListener() {
+        connectTherapists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),SearchTherapists.class));
@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
             resideMenu.addMenuItem(itemMoodGraph,ResideMenu.DIRECTION_LEFT);
             resideMenu.addMenuItem(itemStats,ResideMenu.DIRECTION_LEFT);
             resideMenu.addMenuItem(itemFeed,ResideMenu.DIRECTION_RIGHT);
+            resideMenu.addMenuItem(connectTherapists,ResideMenu.DIRECTION_RIGHT);
 
 
 
