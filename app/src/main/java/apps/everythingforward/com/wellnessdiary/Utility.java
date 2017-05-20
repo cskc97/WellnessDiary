@@ -11,4 +11,11 @@ public class Utility {
     public static final String FEED_ARTICLECONTENT="itemContent";
     public static final String FEED_ARTICLEDESCRIPTION="itemDescription";
     public static final String FEED_ITEMID="feedItemID";
+
+
+    public static String THERAPIST_CLASSNAME = "Therapist";
+    public static String THERAPIST_USERNAME="username";
+    public static String THERAPIST_NAME="name";
+    public static String THERAPIST_DESCRIPTION="description";
+    public static String THERAPIST_IMAGE="image";
 }
