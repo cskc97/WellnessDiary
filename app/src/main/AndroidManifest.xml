@@ -63,7 +63,8 @@
             android:name=".FeedActivity"
             android:hardwareAccelerated="true" />
         <activity android:name=".ManualEntry" />
-        <activity android:name=".FeedItemActivity"></activity>
+        <activity android:name=".FeedItemActivity" />
+        <activity android:name=".SearchTherapists"></activity>
     </application>
 
 </manifest>
