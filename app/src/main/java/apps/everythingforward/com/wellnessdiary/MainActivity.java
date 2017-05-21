@@ -226,13 +226,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if(ParseUser.getCurrentUser()==null) {
-            ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
-            builder.setAppLogo(R.drawable.applogo100x100);
 
-
-            startActivityForResult(builder.build(), 0);
-        }
 
 
         registerReceiver(receiver,intentFilter);
@@ -269,6 +263,15 @@ public class MainActivity extends AppCompatActivity {
                 ParseUser.logOut();
                 finish();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
+               break;
+
+
+
+           }
+           case R.id.about_app:
+           {
+               startActivity(new Intent(getApplicationContext(),AboutApplication.class));
+               break;
 
 
 

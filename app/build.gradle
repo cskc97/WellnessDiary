@@ -94,6 +94,9 @@ dependencies {
     //Input Dialogs
     compile 'com.yarolegovich:lovely-dialog:1.0.7'
 
+    //About Page
+    compile 'com.github.medyo:android-about-page:1.2.1'
+
 
 
 

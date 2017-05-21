@@ -67,7 +67,8 @@
         <activity android:name=".FeedItemActivity" />
         <activity android:name=".SearchTherapists" />
         <activity android:name=".YourConnections" />
-        <activity android:name=".InboxActivity"></activity>
+        <activity android:name=".InboxActivity" />
+        <activity android:name=".AboutApplication"></activity>
     </application>
 
 </manifest>
