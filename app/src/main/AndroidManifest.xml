@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".MyApplication"
@@ -66,7 +66,8 @@
         <activity android:name=".ManualEntry" />
         <activity android:name=".FeedItemActivity" />
         <activity android:name=".SearchTherapists" />
-        <activity android:name=".YourConnections"></activity>
+        <activity android:name=".YourConnections" />
+        <activity android:name=".InboxActivity"></activity>
     </application>
 
 </manifest>
