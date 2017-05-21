@@ -25,6 +25,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.squareup.picasso.Picasso;
+import com.yarolegovich.lovelydialog.LovelyTextInputDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -210,6 +211,32 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
 
 
 
+            }
+        });
+
+        holderFinal.layout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if(holderFinal.connect.isLiked())
+                {
+
+                    new LovelyTextInputDialog(holderFinal.layout.getContext())
+                            .setTopColorRes(R.color.material_deep_teal_50)
+                            .setTitle("Message:")
+                            .setMessage("Go ahead and ask your connection something!")
+
+                            .setConfirmButton(android.R.string.ok, new LovelyTextInputDialog.OnTextInputConfirmListener() {
+                                @Override
+                                public void onTextInputConfirmed(String text) {
+
+                                }
+                            })
+                            .show();
+
+
+                }
+
+                return false;
             }
         });
 
