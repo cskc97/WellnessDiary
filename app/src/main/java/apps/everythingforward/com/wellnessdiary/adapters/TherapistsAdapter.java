@@ -31,6 +31,7 @@ import com.squareup.picasso.Picasso;
 import com.yarolegovich.lovelydialog.LovelyTextInputDialog;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import apps.everythingforward.com.wellnessdiary.R;
@@ -232,11 +233,19 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
                                 @Override
                                 public void onTextInputConfirmed(String text) {
 
+
+                                    Calendar calendar =Calendar.getInstance();
+                                    String timeStamp=calendar.getTime().toString();
+
+
+
                                     ParseObject object = new ParseObject("Messages");
 
                                     object.put(Utility.MESSAGES_FROM,ParseUser.getCurrentUser().getEmail());
                                     object.put(Utility.MESSAGES_TO,userName);
                                     object.put(Utility.MESSAGE_CONTENT,text);
+                                    object.put(Utility.MESSAGE_TIME,timeStamp);
+                                    object.put(Utility.MESSAGE_SENDERNAME,ParseUser.getCurrentUser().getString("name"));
                                     object.saveInBackground();
                                     Toast.makeText(holderFinal.layout.getContext(), "Sent message!", Toast.LENGTH_SHORT).show();
 
