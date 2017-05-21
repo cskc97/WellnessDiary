@@ -1,6 +1,7 @@
 package apps.everythingforward.com.wellnessdiary.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,14 +71,58 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
     @Override
     public void onBindViewHolder(TherapistsAdapter.ViewHolder holder, int position) {
 
+
+        holder.image.setImageDrawable(null);
+
         final ViewHolder holderFinal = holder;
+
+
         ParseFile file = data.get(position).getParseFile(Utility.THERAPIST_IMAGE);
+        Log.e("TherapistsAdapter",file.getName());
+
+        Picasso.with(holder.image.getContext())
+                .load(file.getUrl())
+
+                .placeholder(R.drawable.applogo100x100)
+                .fit()
+                .centerCrop()
+                .into(holder.image);
+
+
+/*        file.getUrl();
+
         file.getDataInBackground(new GetDataCallback() {
             @Override
             public void done(byte[] data, ParseException e) {
-                Glide.with(holderFinal.image.getContext()).load(data).apply(RequestOptions.fitCenterTransform()).into(holderFinal.image);
+
+
+                Glide.with(holderFinal.image.getContext())
+
+
+                        .load(data)
+
+                        .apply(RequestOptions.fitCenterTransform())
+                        .apply(RequestOptions.placeholderOf(R.drawable.applogo100x100))
+                        .into(holderFinal.image);
+
+
             }
         });
+
+        */
+
+
+
+//        try {
+//            byte[] data = file.getData();
+//            Glide.with(holderFinal.image.getContext()).load(data).apply(RequestOptions.fitCenterTransform()).into(holderFinal.image);
+//
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+
+
+
 
 
         holderFinal.name.setText(data.get(position).getString(Utility.THERAPIST_NAME));
