@@ -71,163 +71,141 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        Picasso.with(getApplicationContext()).load(bgURL).fit().into(mainBG);
 
-        manualEntry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),ManualEntry.class));
-            }
-        });
+            Picasso.with(getApplicationContext()).load(bgURL).fit().into(mainBG);
 
-
-
-
-
-
-
-        resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.background_blue);
-        resideMenu.attachToActivity(this);
-
-        buttonFlat = (ButtonFlat)findViewById(R.id.saveToDiaryButton);
-
-        String titles[] = {"Home" ,"My Diary","Mood Graph","Statistics","Feed","Find","Connect","Inbox"};
-     //   int icon[] = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
-
-        int icon[] = {R.mipmap.mydiary,R.mipmap.graph,R.mipmap.stats,R.mipmap.feed,R.mipmap.connect,
-                       R.mipmap.connections,R.mipmap.inbox };
-
-        ResideMenuItem itemMyDiary = new ResideMenuItem(this,icon[0],titles[1]);
-        itemMyDiary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,DisplayDiary.class));
-            }
-        });
-
-
-
-
-        ResideMenuItem itemMoodGraph = new ResideMenuItem(this,icon[1],titles[2]);
-        itemMoodGraph.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,MoodGraph.class));
-            }
-        });
-
-        ResideMenuItem itemStats = new ResideMenuItem(this,icon[2],titles[3]);
-        itemStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,StatisticsActivity.class));
-            }
-        });
-
-        ResideMenuItem itemFeed = new ResideMenuItem(this,icon[3],titles[4]);
-        itemFeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),FeedActivity.class));
-            }
-        });
-
-        ResideMenuItem connectTherapists = new ResideMenuItem(this,icon[4],titles[5]);
-        connectTherapists.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),SearchTherapists.class));
-            }
-        });
-
-
-        ResideMenuItem yourConnections = new ResideMenuItem(this,icon[5],titles[6]);
-        yourConnections.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),YourConnections.class));
-            }
-        });
-
-        ResideMenuItem yourInbox = new ResideMenuItem(this,icon[6],titles[7]);
-        yourInbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),InboxActivity.class));
-
-            }
-        });
-
-
-
-
-
-            resideMenu.addMenuItem(itemMyDiary,  ResideMenu.DIRECTION_LEFT); // or  ResideMenu.DIRECTION_RIGHT
-            resideMenu.addMenuItem(itemMoodGraph,ResideMenu.DIRECTION_LEFT);
-            resideMenu.addMenuItem(itemStats,ResideMenu.DIRECTION_LEFT);
-            resideMenu.addMenuItem(itemFeed,ResideMenu.DIRECTION_RIGHT);
-            resideMenu.addMenuItem(connectTherapists,ResideMenu.DIRECTION_RIGHT);
-            resideMenu.addMenuItem(yourConnections,ResideMenu.DIRECTION_RIGHT);
-            resideMenu.addMenuItem(yourInbox,ResideMenu.DIRECTION_RIGHT);
-
-
-
-
-
-
-
-
-        receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-
-
-                double dSentimentValue = intent.getDoubleExtra("value",0f);
-                float fSentimentValue = (float)dSentimentValue;
-
-
-
-                Intent intent1 = new Intent(MainActivity.this,EmotionAnalyze.class);
-                intent1.putExtra(Intent.EXTRA_TEXT,fSentimentValue);
-                intent1.putExtra("diaryentrystring",sentimentText);
-                startActivity(intent1);
-
-
-            }
-        };
-
-        intentFilter = new IntentFilter(SentimentAnalysisIntentService.ACTION_FINISHEDTEXT);
-
-
-
-
-        buttonFlat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-                if(!diaryText.getText().toString().trim().isEmpty()) {
-                    sentimentText = diaryText.getText().toString();
+            manualEntry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), ManualEntry.class));
                 }
+            });
 
-                if(sentimentText!=null) {
-                    Intent intent = new Intent(MainActivity.this, SentimentAnalysisIntentService.class);
-                    intent.putExtra(Intent.EXTRA_TEXT, sentimentText);
-                    startService(intent);
+
+            resideMenu = new ResideMenu(this);
+            resideMenu.setBackground(R.drawable.background_blue);
+            resideMenu.attachToActivity(this);
+
+            buttonFlat = (ButtonFlat) findViewById(R.id.saveToDiaryButton);
+
+            String titles[] = {"Home", "My Diary", "Mood Graph", "Statistics", "Feed", "Find", "Connect", "Inbox"};
+            //   int icon[] = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
+
+            int icon[] = {R.mipmap.mydiary, R.mipmap.graph, R.mipmap.stats, R.mipmap.feed, R.mipmap.connect,
+                    R.mipmap.connections, R.mipmap.inbox};
+
+            ResideMenuItem itemMyDiary = new ResideMenuItem(this, icon[0], titles[1]);
+            itemMyDiary.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(MainActivity.this, DisplayDiary.class));
                 }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Please fill in your entry!", Toast.LENGTH_SHORT).show();
+            });
+
+
+            ResideMenuItem itemMoodGraph = new ResideMenuItem(this, icon[1], titles[2]);
+            itemMoodGraph.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(MainActivity.this, MoodGraph.class));
                 }
+            });
+
+            ResideMenuItem itemStats = new ResideMenuItem(this, icon[2], titles[3]);
+            itemStats.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(MainActivity.this, StatisticsActivity.class));
+                }
+            });
+
+            ResideMenuItem itemFeed = new ResideMenuItem(this, icon[3], titles[4]);
+            itemFeed.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), FeedActivity.class));
+                }
+            });
+
+            ResideMenuItem connectTherapists = new ResideMenuItem(this, icon[4], titles[5]);
+            connectTherapists.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), SearchTherapists.class));
+                }
+            });
 
 
+            ResideMenuItem yourConnections = new ResideMenuItem(this, icon[5], titles[6]);
+            yourConnections.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), YourConnections.class));
+                }
+            });
+
+            ResideMenuItem yourInbox = new ResideMenuItem(this, icon[6], titles[7]);
+            yourInbox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), InboxActivity.class));
+
+                }
+            });
 
 
+            resideMenu.addMenuItem(itemMyDiary, ResideMenu.DIRECTION_LEFT); // or  ResideMenu.DIRECTION_RIGHT
+            resideMenu.addMenuItem(itemMoodGraph, ResideMenu.DIRECTION_LEFT);
+            resideMenu.addMenuItem(itemStats, ResideMenu.DIRECTION_LEFT);
+            resideMenu.addMenuItem(itemFeed, ResideMenu.DIRECTION_RIGHT);
+            resideMenu.addMenuItem(connectTherapists, ResideMenu.DIRECTION_RIGHT);
+            resideMenu.addMenuItem(yourConnections, ResideMenu.DIRECTION_RIGHT);
+            resideMenu.addMenuItem(yourInbox, ResideMenu.DIRECTION_RIGHT);
 
-            }
-        });
+
+            receiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+
+
+                    double dSentimentValue = intent.getDoubleExtra("value", 0f);
+                    float fSentimentValue = (float) dSentimentValue;
+
+
+                    Intent intent1 = new Intent(MainActivity.this, EmotionAnalyze.class);
+                    intent1.putExtra(Intent.EXTRA_TEXT, fSentimentValue);
+                    intent1.putExtra("diaryentrystring", sentimentText);
+                    startActivity(intent1);
+
+
+                }
+            };
+
+            intentFilter = new IntentFilter(SentimentAnalysisIntentService.ACTION_FINISHEDTEXT);
+
+
+            buttonFlat.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
+                    if (!diaryText.getText().toString().trim().isEmpty()) {
+                        sentimentText = diaryText.getText().toString();
+                    }
+
+                    if (sentimentText != null) {
+                        Intent intent = new Intent(MainActivity.this, SentimentAnalysisIntentService.class);
+                        intent.putExtra(Intent.EXTRA_TEXT, sentimentText);
+                        startService(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Please fill in your entry!", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                }
+            });
+
+
 
 
 
@@ -247,6 +225,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        if(ParseUser.getCurrentUser()==null) {
+            ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+            builder.setAppLogo(R.drawable.applogo100x100);
+
+
+            startActivityForResult(builder.build(), 0);
+        }
+
 
         registerReceiver(receiver,intentFilter);
 
@@ -281,6 +268,8 @@ public class MainActivity extends AppCompatActivity {
            {
                 ParseUser.logOut();
                 finish();
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
 
 
            }
