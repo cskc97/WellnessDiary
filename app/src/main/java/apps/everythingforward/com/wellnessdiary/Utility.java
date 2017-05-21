@@ -24,6 +24,11 @@ public class Utility {
     public static String CONNECTION_USERUSERNAME = "userUsername";
     public static String CONNECTION_THERAPISTUSERNAME="therapistUsername";
 
+    public static String MESSAGES_FROM="fromUsername";
+    public static String MESSAGES_TO="toUsername";
+    public static String MESSAGE_CONTENT="message";
+    public static String MESSAGE_CLASS="Messages";
+
 
 
 

@@ -1,5 +1,7 @@
 package apps.everythingforward.com.wellnessdiary.adapters;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -228,6 +231,16 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
                             .setConfirmButton(android.R.string.ok, new LovelyTextInputDialog.OnTextInputConfirmListener() {
                                 @Override
                                 public void onTextInputConfirmed(String text) {
+
+                                    ParseObject object = new ParseObject("Messages");
+
+                                    object.put(Utility.MESSAGES_FROM,ParseUser.getCurrentUser().getEmail());
+                                    object.put(Utility.MESSAGES_TO,userName);
+                                    object.put(Utility.MESSAGE_CONTENT,text);
+                                    object.saveInBackground();
+                                    Toast.makeText(holderFinal.layout.getContext(), "Sent message!", Toast.LENGTH_SHORT).show();
+
+
 
                                 }
                             })
