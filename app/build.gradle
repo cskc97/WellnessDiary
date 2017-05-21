@@ -94,7 +94,7 @@ dependencies {
     //Input Dialogs
     compile 'com.yarolegovich:lovely-dialog:1.0.7'
 
-    compile 'com.github.yesidlazaro:GmailBackground:1.2.0'
+
 
 
 
