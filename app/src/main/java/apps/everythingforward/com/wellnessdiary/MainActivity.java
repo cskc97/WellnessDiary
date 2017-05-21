@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonFlat = (ButtonFlat)findViewById(R.id.saveToDiaryButton);
 
-        String titles[] = {"Home" ,"My Diary","Mood Graph","Statistics","Feed","Connect"};
+        String titles[] = {"Home" ,"My Diary","Mood Graph","Statistics","Feed","Connect","Your Connections"};
         int icon[] = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
 
         ResideMenuItem itemMyDiary = new ResideMenuItem(this,icon[1],titles[1]);
@@ -139,6 +139,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        ResideMenuItem yourConnections = new ResideMenuItem(this,icon[2],titles[6]);
+        yourConnections.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),YourConnections.class));
+            }
+        });
+
 
 
 
@@ -149,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
             resideMenu.addMenuItem(itemStats,ResideMenu.DIRECTION_LEFT);
             resideMenu.addMenuItem(itemFeed,ResideMenu.DIRECTION_RIGHT);
             resideMenu.addMenuItem(connectTherapists,ResideMenu.DIRECTION_RIGHT);
+            resideMenu.addMenuItem(yourConnections,ResideMenu.DIRECTION_RIGHT);
 
 
 
