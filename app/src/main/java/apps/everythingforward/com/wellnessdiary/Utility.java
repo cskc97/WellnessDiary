@@ -1,5 +1,7 @@
 package apps.everythingforward.com.wellnessdiary;
 
+import java.util.HashMap;
+
 /**
  * Created by santh on 5/19/2017.
  */
@@ -18,4 +20,11 @@ public class Utility {
     public static String THERAPIST_NAME="name";
     public static String THERAPIST_DESCRIPTION="description";
     public static String THERAPIST_IMAGE="image";
+
+    public static String CONNECTION_USERUSERNAME = "userUsername";
+    public static String CONNECTION_THERAPISTUSERNAME="therapistUsername";
+
+
+
+
 }

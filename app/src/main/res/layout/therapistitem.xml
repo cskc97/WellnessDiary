@@ -40,10 +40,13 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/therapistImage" />
 
+
+
+
     <com.like.LikeButton
-        app:icon_type="heart"
+        app:icon_type="star"
         app:icon_size="15dp"
-        android:id="@+id/star_button"
+        android:id="@+id/connect_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 

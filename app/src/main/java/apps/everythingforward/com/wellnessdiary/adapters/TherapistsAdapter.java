@@ -14,11 +14,16 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.github.javiersantos.materialstyleddialogs.enums.Style;
+import com.like.LikeButton;
+import com.like.OnLikeListener;
+import com.parse.FindCallback;
 import com.parse.GetDataCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -52,6 +57,7 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
         ImageView image;
         TextView name;
         RelativeLayout layout;
+        LikeButton connect;
 
 
 
@@ -60,6 +66,7 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
             image = (ImageView)itemView.findViewById(R.id.therapistImage);
             name = (TextView)itemView.findViewById(R.id.therapistName);
             layout = (RelativeLayout)itemView.findViewById(R.id.relLayout);
+            connect = (LikeButton)itemView.findViewById(R.id.connect_button);
 
 
         }
@@ -78,6 +85,7 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
 
         final String name = data.get(position).getString(Utility.THERAPIST_NAME);
         final String description = data.get(position).getString(Utility.THERAPIST_DESCRIPTION);
+        final String userName = data.get(position).getString(Utility.THERAPIST_USERNAME);
 
 
         holder.image.setImageDrawable(null);
@@ -151,6 +159,40 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
                         .setCancelable(true)
                         //.setStyle(Style.HEADER_WITH_TITLE)
                         .show();
+            }
+        });
+
+
+        holderFinal.connect.setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+
+                ParseObject object = new ParseObject("Connections");
+                object.put(Utility.CONNECTION_USERUSERNAME, ParseUser.getCurrentUser().getEmail());
+                object.put(Utility.CONNECTION_THERAPISTUSERNAME,userName);
+                object.saveInBackground();
+
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+
+                ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Connections");
+                query.whereEqualTo(Utility.CONNECTION_USERUSERNAME, ParseUser.getCurrentUser().getEmail());
+                query.whereEqualTo(Utility.CONNECTION_THERAPISTUSERNAME,userName);
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        for(ParseObject object : objects)
+                        {
+                            object.deleteInBackground();
+                        }
+                    }
+                });
+
+
+
+
             }
         });
 

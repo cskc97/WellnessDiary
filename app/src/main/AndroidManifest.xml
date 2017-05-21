@@ -64,7 +64,8 @@
             android:hardwareAccelerated="true" />
         <activity android:name=".ManualEntry" />
         <activity android:name=".FeedItemActivity" />
-        <activity android:name=".SearchTherapists"></activity>
+        <activity android:name=".SearchTherapists" />
+        <activity android:name=".YourConnections"></activity>
     </application>
 
 </manifest>
