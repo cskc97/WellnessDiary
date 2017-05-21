@@ -77,7 +77,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
                 Intent intent = new Intent(view.getContext(), FeedItemActivity.class);
                 Number ID = data.get(position).getNumber(Utility.FEED_ITEMID);
 
-                Toast.makeText(view.getContext(), String.valueOf(ID.intValue()), Toast.LENGTH_SHORT).show();
+        //        Toast.makeText(view.getContext(), String.valueOf(ID.intValue()), Toast.LENGTH_SHORT).show();
                 intent.putExtra(Intent.EXTRA_TEXT,ID.intValue());
                 view.getContext().startActivity(intent);
             }
