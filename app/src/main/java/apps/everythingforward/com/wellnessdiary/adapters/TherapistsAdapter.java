@@ -163,6 +163,23 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
         });
 
 
+        ParseQuery<ParseObject> isLikedAlready = new ParseQuery<ParseObject>("Connections");
+        isLikedAlready.whereEqualTo(Utility.CONNECTION_THERAPISTUSERNAME,userName);
+        try {
+            if(isLikedAlready.count()!=0)
+            {
+                holderFinal.connect.setLiked(true);
+
+            }
+            else
+            {
+                holderFinal.connect.setLiked(false);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         holderFinal.connect.setOnLikeListener(new OnLikeListener() {
             @Override
             public void liked(LikeButton likeButton) {
