@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.github.javiersantos.materialstyleddialogs.enums.Style;
 import com.parse.GetDataCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -48,6 +51,7 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView name;
+        RelativeLayout layout;
 
 
 
@@ -55,6 +59,7 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
             super(itemView);
             image = (ImageView)itemView.findViewById(R.id.therapistImage);
             name = (TextView)itemView.findViewById(R.id.therapistName);
+            layout = (RelativeLayout)itemView.findViewById(R.id.relLayout);
 
 
         }
@@ -70,6 +75,9 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
 
     @Override
     public void onBindViewHolder(TherapistsAdapter.ViewHolder holder, int position) {
+
+        final String name = data.get(position).getString(Utility.THERAPIST_NAME);
+        final String description = data.get(position).getString(Utility.THERAPIST_DESCRIPTION);
 
 
         holder.image.setImageDrawable(null);
@@ -125,7 +133,26 @@ public class TherapistsAdapter extends RecyclerView.Adapter<TherapistsAdapter.Vi
 
 
 
-        holderFinal.name.setText(data.get(position).getString(Utility.THERAPIST_NAME));
+        holderFinal.name.setText(name);
+
+        final int positionVal = position;
+
+        holderFinal.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new MaterialStyledDialog.Builder(holderFinal.layout.getContext())
+                        .setTitle(name)
+                        .setDescription(description)
+                        .setStyle(Style.HEADER_WITH_TITLE)
+                        .setHeaderColor(R.color.colorPrimaryDark)
+                        .withDialogAnimation(true)
+                        .withIconAnimation(true)
+                        .setScrollable(true)
+                        .setCancelable(true)
+                        //.setStyle(Style.HEADER_WITH_TITLE)
+                        .show();
+            }
+        });
 
 
 

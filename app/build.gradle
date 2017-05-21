@@ -23,6 +23,7 @@ repositories {
     maven { url "https://jitpack.io" }
     mavenCentral()
     jcenter()
+
 }
 
 
@@ -84,6 +85,13 @@ dependencies {
 
     //Circular Image View
     compile 'com.mikhaellopez:circularimageview:3.0.2'
+
+    //Like Button
+    compile 'com.github.jd-alexander:LikeButton:0.2.1'
+
+    compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
+
+
 
 }
 
