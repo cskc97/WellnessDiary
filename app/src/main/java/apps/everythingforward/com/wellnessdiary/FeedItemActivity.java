@@ -62,7 +62,7 @@ public class FeedItemActivity extends AppCompatActivity {
 
                     content = objects.get(0).getString(Utility.FEED_ARTICLECONTENT);
                     pictureURL = objects.get(0).getString(Utility.FEED_ARTICLEIMAGE);
-                    Toast.makeText(FeedItemActivity.this, content, Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(FeedItemActivity.this, content, Toast.LENGTH_SHORT).show();
                     Picasso.with(FeedItemActivity.this).load(pictureURL).fit().centerCrop().into(itemImage);
                     itemContent.setText(content);
                 }

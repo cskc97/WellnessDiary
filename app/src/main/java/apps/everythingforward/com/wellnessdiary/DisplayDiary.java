@@ -127,6 +127,7 @@ public class DisplayDiary extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        startActivity(new Intent(DisplayDiary.this,MainActivity.class));
         finish();
     }
 }

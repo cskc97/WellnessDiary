@@ -87,15 +87,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.residembg);
+        resideMenu.setBackground(R.drawable.background_blue);
         resideMenu.attachToActivity(this);
 
         buttonFlat = (ButtonFlat)findViewById(R.id.saveToDiaryButton);
 
-        String titles[] = {"Home" ,"My Diary","Mood Graph","Statistics","Feed","Connect","Your Connections","Inbox"};
-        int icon[] = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
+        String titles[] = {"Home" ,"My Diary","Mood Graph","Statistics","Feed","Find","Connect","Inbox"};
+     //   int icon[] = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
 
-        ResideMenuItem itemMyDiary = new ResideMenuItem(this,icon[1],titles[1]);
+        int icon[] = {R.mipmap.mydiary,R.mipmap.graph,R.mipmap.stats,R.mipmap.feed,R.mipmap.connect,
+                       R.mipmap.connections,R.mipmap.inbox };
+
+        ResideMenuItem itemMyDiary = new ResideMenuItem(this,icon[0],titles[1]);
         itemMyDiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ResideMenuItem itemMoodGraph = new ResideMenuItem(this,icon[2],titles[2]);
+        ResideMenuItem itemMoodGraph = new ResideMenuItem(this,icon[1],titles[2]);
         itemMoodGraph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ResideMenuItem itemFeed = new ResideMenuItem(this,icon[2],titles[4]);
+        ResideMenuItem itemFeed = new ResideMenuItem(this,icon[3],titles[4]);
         itemFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ResideMenuItem connectTherapists = new ResideMenuItem(this,icon[2],titles[5]);
+        ResideMenuItem connectTherapists = new ResideMenuItem(this,icon[4],titles[5]);
         connectTherapists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ResideMenuItem yourConnections = new ResideMenuItem(this,icon[2],titles[6]);
+        ResideMenuItem yourConnections = new ResideMenuItem(this,icon[5],titles[6]);
         yourConnections.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ResideMenuItem yourInbox = new ResideMenuItem(this,icon[2],titles[7]);
+        ResideMenuItem yourInbox = new ResideMenuItem(this,icon[6],titles[7]);
         yourInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

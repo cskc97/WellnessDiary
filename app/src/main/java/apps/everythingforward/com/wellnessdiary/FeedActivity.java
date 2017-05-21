@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -17,11 +18,14 @@ import apps.everythingforward.com.wellnessdiary.adapters.FeedAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.view.View.GONE;
+
 public class FeedActivity extends AppCompatActivity {
 
     RecyclerView feedRecyclerView;
     FeedAdapter feedAdapter;
 
+    ProgressBarCircularIndeterminate progressBarCircularIndeterminate;
 
 
     @Override
@@ -30,6 +34,7 @@ public class FeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feed);
 
         feedRecyclerView=(RecyclerView)findViewById(R.id.feedRV);
+        progressBarCircularIndeterminate=(ProgressBarCircularIndeterminate)findViewById(R.id.progressBarCircularIndeterminate);
 
 
     }
@@ -58,15 +63,15 @@ public class FeedActivity extends AppCompatActivity {
 
                 if(e==null)
                 {
-
+                    progressBarCircularIndeterminate.setVisibility(GONE);
                     feedAdapter = new FeedAdapter(objects);
                     if(feedAdapter!=null)
                     {
-                        Toast.makeText(FeedActivity.this, "Got it!", Toast.LENGTH_SHORT).show();
+                    //    Toast.makeText(FeedActivity.this, "Got it!", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
-                        Toast.makeText(FeedActivity.this, "Adapter is null", Toast.LENGTH_SHORT).show();
+                    //    Toast.makeText(FeedActivity.this, "Adapter is null", Toast.LENGTH_SHORT).show();
                     }
 
 

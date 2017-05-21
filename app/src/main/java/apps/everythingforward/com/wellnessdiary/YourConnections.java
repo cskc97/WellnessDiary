@@ -4,9 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -26,6 +28,8 @@ public class YourConnections extends AppCompatActivity {
     ArrayList<String> connectionsEmails;
     List<ParseObject> passData;
 
+    ProgressBarCircularIndeterminate progressBarCircularIndeterminate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class YourConnections extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.connectTherapistsRV);
         connectionsEmails = new ArrayList<>();
         passData = new ArrayList<ParseObject>();
+
+        progressBarCircularIndeterminate = (ProgressBarCircularIndeterminate)findViewById(R.id.progressBarCircularIndeterminate);
 
         getConnectedTherapists();
     }
@@ -50,6 +56,8 @@ public class YourConnections extends AppCompatActivity {
             public void done(List<ParseObject> objects, ParseException e) {
 
                 if (e == null) {
+
+                    progressBarCircularIndeterminate.setVisibility(View.GONE);
                     for (ParseObject object : objects) {
 
                         String email = object.getString(Utility.CONNECTION_THERAPISTUSERNAME);
@@ -68,7 +76,7 @@ public class YourConnections extends AppCompatActivity {
                             objectArrayList = query.find();
 
                             if(!objectArrayList.isEmpty()) {
-                                Toast.makeText(YourConnections.this, objectArrayList.get(0).getString(Utility.THERAPIST_NAME), Toast.LENGTH_SHORT).show();
+                            //    Toast.makeText(YourConnections.this, objectArrayList.get(0).getString(Utility.THERAPIST_NAME), Toast.LENGTH_SHORT).show();
                                 passData.add(objectArrayList.get(0));
                             }
                             else

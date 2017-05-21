@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#1E88E5"
-        android:text="Your Connections"
+        android:text="Connections"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:minHeight="25dp"
@@ -30,6 +30,13 @@
         android:layout_height="match_parent"
         android:layout_below="@id/connectTherapistsTV"
         android:id="@+id/connectTherapistsRV"/>
+
+    <com.gc.materialdesign.views.ProgressBarCircularIndeterminate
+        android:id="@+id/progressBarCircularIndeterminate"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="#1E88E5"
+        android:layout_centerInParent="true"/>
 
 
 </RelativeLayout>

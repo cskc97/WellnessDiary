@@ -19,8 +19,9 @@
     android:layout_centerHorizontal="true"
     android:id="@+id/textView"
     android:minHeight="25dp"
-    android:textSize="25sp"
-    android:textColor="@color/titlecolor"/>
+    android:textSize="18sp"
+    android:textColor="@color/titlecolor"
+        android:textAllCaps="true"/>
 
     <com.shawnlin.numberpicker.NumberPicker
         android:id="@+id/number_picker"
